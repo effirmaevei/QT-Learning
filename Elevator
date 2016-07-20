@@ -1,0 +1,16 @@
+-give your  Elevator class a moveStep() function (make it slot)
+-give your Elevator class an int attribute called currentFloor or something
+-give your Elevator class a targetFloor int
+-give your Elevator a QTimer attribute called timer orsomething
+
+
+In your moveStep() function:
+-if currentFloor == targetFloor and elevator's position is at target floor's position, call the disconnect() method of your timer
+-if current floor < target floor AND elevator's position is not at the target floors position, move the elevator a little bit up
+-if currentfloor > target floor AND elevator's position is not at the target floors position, move the elevator a little bit down 
+
+
+The idea is that you need to keep track of which floor the elevator is heading towards (targetFloor), and which floor it is currently at (currentFloor). However you also need to keep track of the actual point position of the elevator so that you can see if its at the position of floor (for example your elevator maybe at 9 meters, the next floor maybe at 10 meters.)
+
+
+Seems like a fairly simple solution which only uses one timer!
