@@ -1,0 +1,3 @@
+How QT receives eventKeyPress?
+
+The main window is a QGraphicsView, which is a QWidget. If you only have one widget open, all events will go to that widget by default(you can "focus" even a widget, to make THAT widget recieve events). In this case we only have a single window open, the QGraphicsView, so when we press a key, qt implicitly tells the window what key was pressed. And then the window passes the messege to the scene and the scene to its currently focused item.
