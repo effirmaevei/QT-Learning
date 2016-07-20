@@ -1,0 +1,14 @@
+The code still have memory leaks. The most important is the timer. A new timer is created each time a Bullet is created, but it is never deleted. A way to solve it is make the bullet the parent of the timer:
+
+QTimer* timer = new QTimer(this)
+
+The QObject hierarchy will delete it automatically when the bullet is deleted. Also make timer pointer a member of the class Bullet. When the bullet escapes from the scene, it should stop the timer:
+
+	if ( y() + rect().height() < 0 )
+	{
+   timer->stop();
+   scene()->removeItem(this);
+   this->deleteLater();
+}
+
+The bullet is a QObject and it may have pending events in the event queue. Use the method deleteLater() instead of the operator 'delete this'.
