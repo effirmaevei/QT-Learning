@@ -7,5 +7,3 @@ We gave the game class two important attributes:
 -a pointer to the player
 
 We gave it these two pointers, because we will need to access/control/manipulate the scene and the player a LOT, so it is helpful to have 2 variables to point to them. The advantage of moving all the initialization code inside the constructor of a Game class is that, your Game class can now "represent" an instance of a "game." You could have kept everything out in the main() function but then the main would be super cluttered and you'd have a bunch of global variables. Making a Game class eliminates this mess.
-
-I hope I answered your question. If not, please let me know! Oh and don't worry, it definitely did not sound like critisism, and even if it was criticism, I would not mind (so long as it is constructive!) :). Thanks again for the compliments and thanks for watching! Let me know if I didn't fully answer your question or if you are still confused.﻿
