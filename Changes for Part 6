@@ -1,0 +1,11 @@
+The first thing that changed is, I simply renamed "Rect.h" to "Player.h" just because the name Player made more sense (even though it's visually represented as a rectangle, but the visual representation can be changed, as we will do so later by changing the rectangle into an actual image of a plane - in tutorial 8). 
+
+Secondly, remember all the code that I had in the main() function in tutorial 5? I don't like cluttering up my main function, I like keeping it short and clean. Usually what I like doing in the main, is to instantiate a "game" object and put all the initialization code (such as creating scene, the rectangle, etc...) inside the Game class. I put all of this "initialization" stuff in the constructor of the Game class. So that as soon as we make a game object, we also create the scene, the rectangle and anything else we need. In other words, we do all of the initialization of the game in the constructor of the game class. 
+
+We gave the game class two important attributes:
+-a pointer to the scene
+-a pointer to the player
+
+We gave it these two pointers, because we will need to access/control/manipulate the scene and the player a LOT, so it is helpful to have 2 variables to point to them. The advantage of moving all the initialization code inside the constructor of a Game class is that, your Game class can now "represent" an instance of a "game." You could have kept everything out in the main() function but then the main would be super cluttered and you'd have a bunch of global variables. Making a Game class eliminates this mess.
+
+I hope I answered your question. If not, please let me know! Oh and don't worry, it definitely did not sound like critisism, and even if it was criticism, I would not mind (so long as it is constructive!) :). Thanks again for the compliments and thanks for watching! Let me know if I didn't fully answer your question or if you are still confused.﻿
