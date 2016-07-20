@@ -35,3 +35,14 @@ Scrolling background, much Touhou, such Remilia (Tutorial 7)?
   -when the first image gets to the bottom of screen, move it back on top of the other 2 (or more generally, whenever any of these images gets to the bottom of the screen, move it back on top
   
   *key thing: the images must always be moving down, but when they reach the bottom of the screen, simply relocate them back to the top
+
+How to set a keyPress to trigger fullscreen mode (Tutorial 8)? 
+
+  1. Add new event for keyPress
+  2. call QWidget::showFullScreen() (instead of QWidget::show() on your main window)
+  
+Allow player to choose texture/background image (Tutorial 8)?  Play around with QFileDialog to achieve it. 
+
+How to have my images/sprites blend properly with background (Tutorial 8)?
+
+  The easiest way to do that would be to use an image format that supports "alpha channels" such as .png. (.jpg or .jpeg does NOT support alpha channels). Supporting alpha channels basically means that those images can have regions that are transparent. So in other words, images saved in a .png format (or another alpha channel supporting format) can have regions that are transparent. Your images have "white" in them, as part of the image. What you need to do is, open them up in an image editing software (such as GIMP (free to download) or photoshop (costs) if you have it) and erase the "white." In gimp, the easiest way to do this is to open up your image and use the "fuzzy select" tool to click on the white background, then press the delete key on your keyboard to make it transparent. Then you simply clicked file->export as and save as .png :) Hope that helps!﻿
