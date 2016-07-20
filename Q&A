@@ -7,3 +7,31 @@ Change the color of the rectangle?
   QBrush brush(Qt::blue);
   QGraphicsRectItem* someRect = new QGraphicsRectItem(0,0,100,100);
   someRect->setBrush(brush);
+
+Gettings error using Linux in Tutorial 7?
+
+  sudo apt-get update
+  # To fix key error
+  sudo apt-get install deb-multimedia-keyring
+  sudo apt-get update
+  sudo apt-get dist-upgrade 
+  sudo apt-get install gstreamer0.10-ffmpeg
+  sudo apt-get install gstreamer0.10-plugins-ugly
+  sudo apt-get install gstreamer0.10-plugins-bad
+  sudo apt-get install gstreamer0.10-plugins-good﻿
+  
+Want a playlist instead of a single BGM (Tutorial 7)?
+  
+  QMediaPlaylist * playlist = new QMediaPlaylist();
+    playlist->addMedia(QUrl("qrc:/sounds/bgmusic.mp3"));
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
+    
+Scrolling background, much Touhou, such Remilia (Tutorial 7)?
+
+  Here is a general approach to achieving a scrolling background using 3 identical images:
+  -find or make an image that tiles horizontally or vertically (depending on whether your background will be moving horizontally or vertically)
+  -if you want vertical scrolling, spawn one of these images and use a QTimer to slowy move it down
+  -at the same time, spawn another image right ontop of this one
+  -when the first image gets to the bottom of screen, move it back on top of the other 2 (or more generally, whenever any of these images gets to the bottom of the screen, move it back on top
+  
+  *key thing: the images must always be moving down, but when they reach the bottom of the screen, simply relocate them back to the top
