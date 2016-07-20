@@ -1,0 +1,10 @@
+I will now summarize how the Qt event propagation system works, which will help you understand this issue. When a keyboard event occurs, first the QGraphicsView recieves it, by default, it will pass it to it's scene, and the scene will pass it to it's focused item.
+
+*talking about a game that involves changing rooms through doors*
+
+Now, your code, succesfully set a new scene when a player entered a door. It also succesfully "moved" the player to the new scene. However, you must keep in mind that the player had focus in the PREVIOUS scene, not in the new one. Thus after you moved to a new scene, the player was no longer focused, thus it's press and release events were never triggered, because it never recieved key events any more. The solution was to simply give the player focus again when he moved to a new scene. I just added player->setFocus() in your Game::checkCollision() member function.
+
+So in that member function, for example, when the player enters north door, you
+- setRoom()
+- add player to new room (scene)
+- you must now give the player focus again by calling player->setFocus() (to make him focus in the NEW scene)
